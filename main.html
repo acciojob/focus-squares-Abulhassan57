@@ -19,6 +19,30 @@
 	<div class="square" id="square3" ></div>
 
 	<script type="text/javascript" src="./script.js">
+
+		 const boxes= document.querySelectorAll(".Box")
+
+        boxes.forEach((box)=>{
+            // console.log(box,'box')
+
+            box.addEventListener("mouseover",(e)=>{
+                console.log(e.target.id)
+                changeColor(e.target.id)
+            })
+            box.addEventListener("mouseout",(e)=>{
+                boxes.forEach((box)=>{
+                    box.style.backgroundColor=`rgb(202, 245, 245)`
+                })
+            })
+        })
+
+        function changeColor(hoveredBoxId){
+            boxes.forEach((box)=>{
+                if(box.id !=hoveredBoxId){
+                    box.style.backgroundColor = `#6F4E37`
+                }
+            })
+        }
 	</script>
 </body>
 </html>
